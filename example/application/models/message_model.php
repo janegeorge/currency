@@ -59,16 +59,6 @@ class Message_model extends CI_Model
         'ORGINATINGCOUNTRY'=>$countryname
         );
         $this->db->insert('message',$data);
-         
-       
-    
-  }
-  function getlist()
-  {
-      /* $this->db->select('CURRENCYTO,CURRENCYFROM,AMOUNTBUY,RATE,ORGINATINGCOUNTRY');
-        $this->db->from('message');
-        $this->db->where('user_id',$userid);
-        $va=$this->db->get();
-        return $va; */
   }
 }
+

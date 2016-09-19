@@ -49,9 +49,10 @@ class Message_model extends CI_Model
         return $return;
     } 
     /*inserting all data to database*/
-    function insertdata($currency_to,$currency_from,$amountsell,$amountbuy,$countryname)
+    function insertdata($userid,$currency_to,$currency_from,$amountsell,$amountbuy,$countryname)
     {
-        $data=array(
+        $data=array( 
+        'USERID'=>$userid, 
         'CURRENCYTO'=>$currency_to,
         'CURRENCYFROM'=>$currency_from,
         'AMOUNTBUY'=>$amountbuy,
@@ -59,6 +60,15 @@ class Message_model extends CI_Model
         'ORGINATINGCOUNTRY'=>$countryname
         );
         $this->db->insert('message',$data);
+  }
+  /*getting all trade message from the database*/
+  function getlist($userid)
+  {
+      $this->db->select('CURRENCYTO,CURRENCYFROM,AMOUNTBUY,RATE,ORGINATINGCOUNTRY');
+      $this->db->from('message');
+      $this->db->where('USERID',$userid);
+      $query=$this->db->get();
+        return $query->result();
   }
 }
 

@@ -5,8 +5,9 @@ class Message extends CI_Controller {
        Description:This function calls the first page by taking currency and 
        country details and passing the data to the view page
      */
+      
     public function index()
-    {  
+    {   
       $this->load->model('message_model');      
       $data['getcurrency']=$this->message_model->getcurrency();
       $data['getcurrencyto']=$this->message_model->getcurrencyto();
@@ -29,12 +30,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die($json_out);
     } 
     //Validation
-    if( validate('currency_to')|| validate('currency_from') || validate('amountsell')|| validate('amountbuy')||validate('countryname'))
+    if(validate('userid')||validate('currency_to')|| validate('currency_from') || validate('amountsell')|| validate('amountbuy')||validate('countryname'))
     {
         $json_out = json_encode(array('status'=>'false', 'message' => 'All fields are required'));
         die($json_out);
     }
-  
+     $userid = $_POST["userid"];
     $currency_to            =           $_POST["currency_to"];
     $currency_from          =           $_POST["currency_from"];
     $amountsell             =           $_POST["amountsell"];
@@ -43,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
       
      $this->load->model('message_model');
-     $this->message_model->insertdata($currency_to,$currency_from,$amountsell,$amountbuy,$countryname);
+     $this->message_model->insertdata($userid,$currency_to,$currency_from,$amountsell,$amountbuy,$countryname);
    
         $output = json_encode(array('status'=>'true', 'message' => '<strong>Insertion successfully!</strong>'));
         die($output);
@@ -58,3 +59,4 @@ function validate($item){
         return true;
     }
 }    
+

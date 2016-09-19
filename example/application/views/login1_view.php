@@ -2,14 +2,12 @@
                 <div class="grid-row clearfix">
                 </div>
             </section>
-            <!--/ page title -->
 <main class="page-content">
                 <div class="grid-row">
                     <div class="grid-col grid-col-9">
                     <br>
                     <br>
                     <br>
-                   
                 <div class="red">
                      <center> 
                          <h1 style="font-size:31px;">Login</h1>    

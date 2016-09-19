@@ -1,8 +1,5 @@
             <section class="page-title">
                 <div class="grid-row clearfix">
-                   
-                    
-                 
                 </div>
             </section>
             <!--/ page title -->

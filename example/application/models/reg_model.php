@@ -1,6 +1,10 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Reg_model extends CI_Model
 { 
+    /* Function Name:insertdata
+       Description:insertion user details to the database
+    
+    */
   function insertdata($fname,$lname,$user,$pwd,$email,$phone)
     {
     

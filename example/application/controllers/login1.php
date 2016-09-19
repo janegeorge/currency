@@ -2,21 +2,6 @@
 
 class Login1 extends CI_Controller {
 
-    /**
-     * Index Page for this controller.
-     *
-     * Maps to the following URL
-     *         http://example.com/index.php/welcome
-     *    - or -  
-     *         http://example.com/index.php/welcome/index
-     *    - or -
-     * Since this controller is set as the default controller in 
-     * config/routes.php, it's displayed at http://example.com/
-     *
-     * So any other public methods not prefixed with an underscore will
-     * map to /index.php/welcome/<method_name>
-     * @see http://codeigniter.com/user_guide/general/urls.html
-     */
     public function index()
     {
         {
@@ -25,6 +10,12 @@ class Login1 extends CI_Controller {
             $this->load->view("footer1.php");
         }
     }
+    /*
+    Function:submit
+    Description:In this validation checking of each field in the login page.
+    checking whether it is already registered.
+    
+    */
     public function submit()
     {
         
@@ -38,12 +29,9 @@ class Login1 extends CI_Controller {
         else
         {
         $user=$this->input->post("uname");
-        //echo $user;
         $pwd1=$this->input->post("pwd");
-       // echo "hii";
         $pwd=do_hash($pwd1, 'md5'); 
         $this->load->model("login_model");
-       // $this->login_model->insertdata($user,$pwd);
        $result=$this->login_model->getdata($user,$pwd);
        if($result)
    {
@@ -58,19 +46,14 @@ class Login1 extends CI_Controller {
        redirect(base_url().'message/index',$data);  
         return TRUE; 
      }
-     
-      
-    
    }
    else
    { 
-     $this->form_validation->set_rules('submit', 'Invalid username or password');
-     $message= "Invalid username or password" ;
+     $message="Invalid username or password";
      $this->session->set_flashdata('message',$message); 
      $this->index();
       return false;
-   }
-       
-        }  
+   }  
+     }  
         }
 }

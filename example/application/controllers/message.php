@@ -47,15 +47,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
         $output = json_encode(array('status'=>'true', 'message' => '<strong>Insertion successfully!</strong>'));
         die($output);
-    
-    /* if ($data === TRUE)
-    {
-        
-        echo "Insertion successfully";
-    } else {
-    echo "Error";
-    }
-      */
       
 }
 }     }  
@@ -67,4 +58,3 @@ function validate($item){
         return true;
     }
 }    
-

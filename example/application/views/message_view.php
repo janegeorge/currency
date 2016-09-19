@@ -26,7 +26,7 @@
             set_value('countryname','id="countryname"'), $attributes); ?>
         </div> 
         <br>
-         <input type="text" value="<?php echo $this->session->userid;?>" name="id"/>
+        
        <input type="submit" id="submit" class="button" value="submit" /> 
          <div id="status"></div>        
       </form> 
@@ -36,7 +36,6 @@
    <script type="text/javascript">  
 $(document).ready(function() {
   $("#ajaxform").submit(function(e){
-    // e.preventDefault();
     var contactdata  =   $(this).serializeArray();
     var submiturl    =  $(this).attr('action');
     var submitbtn    =  $('#submit');
@@ -56,7 +55,7 @@ $(document).ready(function() {
                 document.getElementById('amountsell').value='';
                  document.getElementById('amountbuy').value='';
                   $('#status').html(response.message);
-                //Success = true;
+                
                 
                 submitbtn.val('SUBMIT');
       }
@@ -67,7 +66,6 @@ $(document).ready(function() {
        
         } 
     });
-   // e.preventDefault(); 
   }); 
 });
 </script>
